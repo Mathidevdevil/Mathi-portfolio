@@ -8,7 +8,7 @@ import Freelancing from './sections/Freelancing';
 import Contact from './sections/Contact';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import VantaBackground from './components/VantaBackground';
+import SplashCursor from './components/SplashCursor';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,9 +32,17 @@ function App() {
       <div className="bg-gray-50/80 dark:bg-darker/80 min-h-screen text-gray-900 dark:text-white font-sans selection:bg-cyan/30 selection:text-cyan transition-colors duration-300 relative">
 
         {/* Global Background */}
-        <div className="fixed inset-0 z-0 pointer-events-none">
-          <VantaBackground />
-        </div>
+        <SplashCursor
+          SIM_RESOLUTION={128}
+          DYE_RESOLUTION={1440}
+          DENSITY_DISSIPATION={3.5}
+          VELOCITY_DISSIPATION={2}
+          PRESSURE={0.1}
+          CURL={3}
+          SPLAT_RADIUS={0.2}
+          SPLAT_FORCE={6000}
+          COLOR_UPDATE_SPEED={10}
+        />
 
         {/* Navigation */}
         <nav className="fixed top-0 left-0 right-0 z-50 bg-white/70 dark:bg-darker/70 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
