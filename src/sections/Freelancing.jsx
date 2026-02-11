@@ -5,7 +5,7 @@ import MagicBento, { MagicBentoCard } from '../components/MagicBento';
 
 const ServiceCard = ({ title, icon: Icon }) => (
     <MagicBentoCard
-        className="bg-gray-50 dark:bg-darker border border-gray-200 dark:border-gray-800 p-6 rounded-xl hover:border-cyan/50 hover:shadow-[0_0_15px_rgba(0,243,255,0.1)] transition-all duration-300 group"
+        className="border border-black/10 dark:border-white/10 p-6 rounded-xl hover:border-cyan/50 hover:shadow-[0_0_15px_rgba(0,243,255,0.1)] transition-all duration-300 group"
         enableStars={false}
         enableTilt={true}
         style={{ aspectRatio: 'auto', minHeight: 'auto' }}
@@ -13,7 +13,7 @@ const ServiceCard = ({ title, icon: Icon }) => (
         <div className="p-3 rounded-lg bg-cyan/10 text-cyan w-fit mb-4 relative z-10 group-hover:text-neon transition-colors">
             <Icon size={30} />
         </div>
-        <h3 className="text-xl font-bold font-cyber text-gray-900 dark:text-white mb-2 relative z-10">{title}</h3>
+        <h3 className="text-xl font-bold font-cyber text-cyan-700 dark:text-cyan-400 mb-2 relative z-10">{title}</h3>
     </MagicBentoCard>
 );
 
@@ -51,7 +51,7 @@ const Freelancing = () => {
                     {/* Why Choose Me & CTA Column */}
                     <div className="space-y-10">
                         <MagicBentoCard
-                            className="bg-white/50 dark:bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 dark:border-gray-800"
+                            className="bg-white/50 dark:bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-black/10 dark:border-white/10"
                             enableStars={true}
                             enableTilt={true}
                             style={{ aspectRatio: 'auto', minHeight: 'auto' }}

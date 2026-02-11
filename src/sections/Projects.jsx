@@ -68,7 +68,7 @@ const Projects = () => {
                             <div>
                                 <div className="flex items-center gap-2 mb-3">
                                     <Target className="text-cyan-600 dark:text-cyan-400" size={20} />
-                                    <h3 className="text-xl font-cyber font-bold text-gray-900 dark:text-white">
+                                    <h3 className="text-xl font-cyber font-bold text-cyan-700 dark:text-cyan-400">
                                         Objectives
                                     </h3>
                                 </div>
@@ -88,7 +88,7 @@ const Projects = () => {
                             <div>
                                 <div className="flex items-center gap-2 mb-3">
                                     <Zap className="text-cyan-600 dark:text-cyan-400" size={20} />
-                                    <h3 className="text-xl font-cyber font-bold text-gray-900 dark:text-white">
+                                    <h3 className="text-xl font-cyber font-bold text-cyan-700 dark:text-cyan-400">
                                         Key Features
                                     </h3>
                                 </div>
@@ -108,7 +108,7 @@ const Projects = () => {
                             <div>
                                 <div className="flex items-center gap-2 mb-3">
                                     <Cpu className="text-cyan-600 dark:text-cyan-400" size={20} />
-                                    <h3 className="text-xl font-cyber font-bold text-gray-900 dark:text-white">
+                                    <h3 className="text-xl font-cyber font-bold text-cyan-700 dark:text-cyan-400">
                                         Hardware Components
                                     </h3>
                                 </div>
@@ -128,7 +128,7 @@ const Projects = () => {
                             <div>
                                 <div className="flex items-center gap-2 mb-3">
                                     <Cpu className="text-cyan-600 dark:text-cyan-400" size={20} />
-                                    <h3 className="text-xl font-cyber font-bold text-gray-900 dark:text-white">
+                                    <h3 className="text-xl font-cyber font-bold text-cyan-700 dark:text-cyan-400">
                                         Technologies
                                     </h3>
                                 </div>
@@ -152,7 +152,7 @@ const Projects = () => {
                             <div>
                                 <div className="flex items-center gap-2 mb-3">
                                     <Shield className="text-cyan-600 dark:text-cyan-400" size={20} />
-                                    <h3 className="text-xl font-cyber font-bold text-gray-900 dark:text-white">
+                                    <h3 className="text-xl font-cyber font-bold text-cyan-700 dark:text-cyan-400">
                                         Security Measures
                                     </h3>
                                 </div>
@@ -172,7 +172,7 @@ const Projects = () => {
                             <div>
                                 <div className="flex items-center gap-2 mb-3">
                                     <TrendingUp className="text-cyan-600 dark:text-cyan-400" size={20} />
-                                    <h3 className="text-xl font-cyber font-bold text-gray-900 dark:text-white">
+                                    <h3 className="text-xl font-cyber font-bold text-cyan-700 dark:text-cyan-400">
                                         Implementation Highlights
                                     </h3>
                                 </div>
@@ -192,7 +192,7 @@ const Projects = () => {
                             <div>
                                 <div className="flex items-center gap-2 mb-3">
                                     <Zap className="text-cyan-600 dark:text-cyan-400" size={20} />
-                                    <h3 className="text-xl font-cyber font-bold text-gray-900 dark:text-white">
+                                    <h3 className="text-xl font-cyber font-bold text-cyan-700 dark:text-cyan-400">
                                         Future Enhancements
                                     </h3>
                                 </div>
@@ -282,7 +282,7 @@ const Projects = () => {
                         >
                             <MagicBentoCard
                                 onClick={() => setSelectedProject(project)}
-                                className="bg-white dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-700 p-6 rounded-2xl relative overflow-hidden group shadow-lg hover:shadow-xl dark:shadow-none cursor-pointer transition-all h-full flex flex-col"
+                                className="border border-black/10 dark:border-white/10 p-6 rounded-2xl relative overflow-hidden group shadow-lg hover:shadow-xl dark:shadow-none cursor-pointer transition-all h-full flex flex-col"
                                 enableStars={false}
                                 enableTilt={true}
                                 style={{ aspectRatio: 'auto', minHeight: 'auto' }}

@@ -12,7 +12,7 @@ const SkillCard = ({ title, skills, icon: Icon, delay }) => (
         transition={{ delay }}
     >
         <MagicBentoCard
-            className="p-6 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-cyan/50 hover:shadow-[0_0_15px_rgba(0,243,255,0.1)] transition-all duration-300 group bg-gray-50 dark:bg-darker"
+            className="p-6 rounded-xl border border-black/10 dark:border-white/10 hover:border-cyan/50 hover:shadow-[0_0_15px_rgba(0,243,255,0.1)] transition-all duration-300 group"
             enableStars={false}
             enableTilt={true}
             style={{ aspectRatio: 'auto', minHeight: 'auto' }}
@@ -21,14 +21,14 @@ const SkillCard = ({ title, skills, icon: Icon, delay }) => (
                 <div className="p-3 rounded-lg bg-cyan/10 text-cyan group-hover:bg-cyan group-hover:text-darker transition-colors">
                     <Icon size={24} />
                 </div>
-                <h3 className="text-xl font-bold font-cyber text-gray-900 dark:text-white">{title}</h3>
+                <h3 className="text-xl font-bold font-cyber text-cyan-700 dark:text-cyan-400">{title}</h3>
             </div>
             <div className="space-y-3 relative z-10">
                 {skills.map((skill, idx) => (
                     <motion.div
                         key={idx}
                         whileHover={{ x: 10, color: '#00f3ff' }}
-                        className="flex justify-between items-center text-sm font-mono text-gray-600 dark:text-gray-400 cursor-pointer p-2 rounded hover:bg-cyan/5 transition-colors"
+                        className="flex justify-between items-center text-sm font-mono text-gray-700 dark:text-gray-300 cursor-pointer p-2 rounded hover:bg-cyan/5 transition-colors"
                     >
                         <span>{skill}</span>
                         <span className="opacity-0 group-hover/skill:opacity-100 text-cyan dark:text-neon text-xs">&gt;_</span>

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { userData } from '../data/user';
 import { Cpu } from 'lucide-react';
 
+import DecryptedText from '../components/DecryptedText';
 
 const Hero = () => {
 
@@ -26,8 +27,18 @@ const Hero = () => {
 
                 <div className="h-px w-20 md:w-32 bg-gradient-to-r from-transparent via-cyan to-transparent mx-auto my-4 md:my-6" />
 
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-mono text-gray-600 dark:text-gray-400 px-4">
-                    I am a <span className="text-cyan dark:text-neon">{userData.personal.role}</span>
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-mono text-gray-600 dark:text-gray-400 px-4 flex justify-center items-center gap-2">
+                    I am a <span className="text-cyan dark:text-neon">
+                        <DecryptedText
+                            text={userData.personal.role}
+                            speed={60}
+                            maxIterations={20}
+                            revealDirection="center"
+                            animateOn="view"
+                            className="text-cyan dark:text-neon font-bold"
+                            encryptedClassName="text-cyan/50 dark:text-neon/50"
+                        />
+                    </span>
                 </h2>
 
                 <p className="text-gray-600 dark:text-gray-500 max-w-2xl mx-auto text-base md:text-lg leading-relaxed px-4">

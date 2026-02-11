@@ -24,7 +24,7 @@ const About = () => {
                                 About Me
                             </h2>
                             <div className="h-1 w-16 md:w-20 bg-cyan mb-4 md:mb-6" />
-                            <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed font-mono">
+                            <p className="text-gray-700 dark:text-gray-300 text-base md:text-lg leading-relaxed font-mono">
                                 {userData.about.description}
                             </p>
 

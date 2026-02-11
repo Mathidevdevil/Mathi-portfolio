@@ -30,7 +30,7 @@ const Certifications = () => {
                             transition={{ delay: index * 0.1 }}
                         >
                             <MagicBentoCard
-                                className="bg-white dark:bg-darker border border-gray-200 dark:border-gray-800 p-6 rounded-xl hover:border-cyan/50 hover:shadow-[0_0_15px_rgba(0,243,255,0.1)] transition-all duration-300 group h-full flex flex-col justify-between"
+                                className="bg-white/50 dark:bg-white/5 backdrop-blur-sm border border-black/10 dark:border-white/10 p-6 rounded-xl hover:border-cyan/50 hover:shadow-[0_0_15px_rgba(0,243,255,0.1)] transition-all duration-300 group h-full flex flex-col justify-between"
                                 enableStars={false}
                                 enableTilt={true}
                                 style={{ aspectRatio: 'auto', minHeight: 'auto' }}
@@ -50,11 +50,11 @@ const Certifications = () => {
                                         </a>
                                     </div>
 
-                                    <h3 className="text-lg font-bold font-cyber mb-2 text-gray-900 dark:text-white group-hover:text-cyan transition-colors relative z-10">
+                                    <h3 className="text-lg font-bold font-cyber mb-2 text-cyan-700 dark:text-cyan-400 group-hover:text-cyan transition-colors relative z-10">
                                         {cert.title}
                                     </h3>
 
-                                    <p className="text-gray-600 dark:text-gray-400 font-bold text-sm mb-4 relative z-10">
+                                    <p className="text-gray-800 dark:text-gray-200 font-bold text-sm mb-4 relative z-10">
                                         {cert.issuer}
                                     </p>
                                 </div>

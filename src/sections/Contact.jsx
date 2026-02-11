@@ -80,7 +80,7 @@ const Contact = () => {
                                     className="block"
                                 >
                                     <MagicBentoCard
-                                        className="flex items-center gap-4 text-gray-600 dark:text-gray-400 hover:text-cyan transition-colors p-4 border border-gray-200 dark:border-gray-800 rounded-lg bg-gray-50 dark:bg-dark hover:border-cyan/50 shadow-sm hover:shadow-cyan/20 group"
+                                        className="flex items-center gap-4 text-gray-800 dark:text-gray-200 hover:text-cyan transition-colors p-4 border border-black/10 dark:border-white/10 rounded-lg bg-white/50 dark:bg-white/5 hover:border-cyan/50 shadow-sm hover:shadow-cyan/20 group"
                                         enableStars={false}
                                         enableTilt={true}
                                         style={{ aspectRatio: 'auto', minHeight: 'auto' }}
@@ -98,7 +98,7 @@ const Contact = () => {
                         <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4 md:mb-6">Send Message</h3>
 
                         <MagicBentoCard
-                            className="bg-gray-50 dark:bg-dark/50 border border-gray-200 dark:border-gray-800 p-6 rounded-xl flex-1 flex flex-col"
+                            className="bg-white/50 dark:bg-white/5 border border-black/10 dark:border-white/10 p-6 rounded-xl flex-1 flex flex-col"
                             enableStars={true}
                             enableTilt={false}
                             style={{ aspectRatio: 'auto', minHeight: 'auto' }}
