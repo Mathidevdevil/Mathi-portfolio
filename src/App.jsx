@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
-import Hero from './sections/Hero';
-import About from './sections/About';
-import Skills from './sections/Skills';
-import Projects from './sections/Projects';
-import Certifications from './sections/Certifications';
-import Freelancing from './sections/Freelancing';
-import Contact from './sections/Contact';
+import React, { useState, Suspense, lazy } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ClickSpark from './components/ClickSpark';
 import GradientNavBar from './components/GradientNavBar';
 import Prism from './components/Prism';
+
+// Lazy load sections
+const Hero = lazy(() => import('./sections/Hero'));
+const About = lazy(() => import('./sections/About'));
+const Skills = lazy(() => import('./sections/Skills'));
+const Projects = lazy(() => import('./sections/Projects'));
+const Certifications = lazy(() => import('./sections/Certifications'));
+const Freelancing = lazy(() => import('./sections/Freelancing'));
+const Contact = lazy(() => import('./sections/Contact'));
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,6 +31,12 @@ function App() {
     { title: 'CONTACT', href: '#contact' },
   ];
 
+  const LoadingSpinner = () => (
+    <div className="flex items-center justify-center py-20">
+      <div className="w-10 h-10 border-4 border-cyan/30 border-t-cyan rounded-full animate-spin"></div>
+    </div>
+  );
+
   return (
     <ClickSpark
       sparkColor='#fff'
@@ -40,7 +48,6 @@ function App() {
       <div className={`${isDark ? 'dark' : ''}`}>
         <div className="bg-gray-50/80 dark:bg-darker/80 min-h-screen text-gray-900 dark:text-white font-sans selection:bg-cyan/30 selection:text-cyan transition-colors duration-300 relative">
 
-          {/* Global Background */}
           {/* Global Background */}
           <div className="fixed inset-0 z-0">
             <Prism
@@ -93,19 +100,21 @@ function App() {
           </div>
 
           {/* Main Content */}
-          < main className="relative z-10" >
-            <Hero />
-            <About />
-            <Skills />
-            <Projects />
-            <Freelancing />
-            <Certifications />
-            <Contact />
-          </main >
+          <main className="relative z-10">
+            <Suspense fallback={<LoadingSpinner />}>
+              <Hero />
+              <About />
+              <Skills />
+              <Projects />
+              <Freelancing />
+              <Certifications />
+              <Contact />
+            </Suspense>
+          </main>
 
-        </div >
-      </div >
-    </ClickSpark >
+        </div>
+      </div>
+    </ClickSpark>
   );
 }
 
