@@ -1,0 +1,160 @@
+/* GooeyNav.css */
+.gooey-nav-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Define colors used in JS logic */
+    --color-1: #ff0055;
+    --color-2: #0099ff;
+    --color-3: #00ff99;
+    --color-4: #ffcc00;
+    /* Ensure container doesn't clip high-flying particles if possible, 
+     but we need consistent layout. overflow: visible allowed? */
+    overflow: visible;
+}
+
+.gooey-nav-container nav {
+    position: relative;
+    z-index: 20;
+}
+
+.gooey-nav-container ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    padding: 0;
+    margin: 0;
+}
+
+.gooey-nav-container li {
+    position: relative;
+}
+
+.gooey-nav-container a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+    padding: 0.5rem 1.5rem;
+    /* Increased padding for click target */
+    display: block;
+    transition: opacity 0.3s;
+    cursor: pointer;
+    position: relative;
+    z-index: 21;
+}
+
+/* Active Item Text Hiding - 
+   The User Logic highlights the text in .effect.text, 
+   so we hide the original text of the active item to prevent duplication */
+.gooey-nav-container li.active a {
+    opacity: 0;
+}
+
+/* --- The Effect Filter Layer (The Gooey Blob) --- */
+.effect.filter {
+    position: absolute;
+    z-index: 10;
+    pointer-events: none;
+    /* The "Pill" background */
+    width: 100px;
+    /* Default, overridden by JS */
+    height: 40px;
+    /* Default, overridden by JS */
+    border-radius: 9999px;
+
+    /* Gooey Filter Magic */
+    /* Using standard CSS filter approach for modern browsers */
+    /* This works best if background is distinct */
+    background: var(--purple-primary, #8400ff);
+    filter: url('#gooey-filter');
+    /* Try SVG filter if available, fallback to CSS */
+
+    /* If no SVG, use CSS blur+contrast (works on white bg better) */
+    /* Since we are on a transparent/glass nav, standard blur might just look blurred. 
+     We will rely on the particles looking "dusty" or "glowing" if gooey fails. */
+}
+
+/* Fallback CSS Gooey (alpha-channel based) */
+@supports (filter: blur(10px)) {
+    .effect.filter {
+        /* This filter stack often achieves gooey on alpha channels */
+        filter: blur(10px) contrast(20);
+        /* We need a transparent background for the container, but colored components */
+        background: transparent;
+    }
+
+    /* The "Blob" or "Pill" needs to be inside or pseudo-element to be separate from particles? 
+       No, if filter receives children (particles) + background (pill), they merge. */
+    .effect.filter::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: var(--purple-primary, #8400ff);
+        border-radius: 9999px;
+        /* Reduce opacity edge artifacts */
+        box-shadow: 0 0 10px var(--purple-primary, #8400ff);
+    }
+}
+
+/* --- Text Overlay --- */
+.effect.text {
+    position: absolute;
+    z-index: 30;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    color: white;
+    /* Active text color */
+    opacity: 0;
+    transition: opacity 0.2s ease-in;
+    /* Match dimensions of active item */
+    border-radius: 9999px;
+}
+
+.effect.text.active {
+    opacity: 1;
+}
+
+/* --- Particles --- */
+.particle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    /* Size is critical for gooey effect */
+    width: 12px;
+    height: 12px;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+}
+
+.particle .point {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--color, white);
+    /* Use CSS var or default */
+    transform: translate(0, 0) scale(var(--scale, 1));
+    animation: particle-move var(--time, 1s) cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes particle-move {
+    0% {
+        transform: translate(var(--start-x), var(--start-y)) scale(0.5);
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(var(--end-x), var(--end-y)) scale(0);
+        opacity: 0;
+    }
+}

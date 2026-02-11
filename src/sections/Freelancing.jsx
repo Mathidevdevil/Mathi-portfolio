@@ -1,18 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Code, Server, Wrench, CheckCircle, Smartphone } from 'lucide-react';
+import MagicBento, { MagicBentoCard } from '../components/MagicBento';
 
 const ServiceCard = ({ title, icon: Icon }) => (
-    <motion.div
-        whileHover={{ scale: 1.02 }}
-        className="bg-gray-50 dark:bg-darker border border-gray-200 dark:border-gray-800 p-6 rounded-xl hover:border-cyan/50 hover:shadow-[0_0_15px_rgba(0,243,255,0.1)] transition-all duration-300"
+    <MagicBentoCard
+        className="bg-gray-50 dark:bg-darker border border-gray-200 dark:border-gray-800 p-6 rounded-xl hover:border-cyan/50 hover:shadow-[0_0_15px_rgba(0,243,255,0.1)] transition-all duration-300 group"
+        enableStars={false}
+        enableTilt={true}
+        style={{ aspectRatio: 'auto', minHeight: 'auto' }}
     >
-        <div className="p-3 rounded-lg bg-cyan/10 text-cyan w-fit mb-4">
+        <div className="p-3 rounded-lg bg-cyan/10 text-cyan w-fit mb-4 relative z-10 group-hover:text-neon transition-colors">
             <Icon size={30} />
         </div>
-        <h3 className="text-xl font-bold font-cyber text-gray-900 dark:text-white mb-2">{title}</h3>
-
-    </motion.div>
+        <h3 className="text-xl font-bold font-cyber text-gray-900 dark:text-white mb-2 relative z-10">{title}</h3>
+    </MagicBentoCard>
 );
 
 const BenefitItem = ({ text }) => (
@@ -38,7 +40,7 @@ const Freelancing = () => {
                     <p className="text-gray-600 dark:text-gray-400 font-mono">Professional Web Solutions for Your Business</p>
                 </motion.div>
 
-                <div className="grid md:grid-cols-2 gap-12 items-center">
+                <MagicBento wrapperClassName="grid md:grid-cols-2 gap-12 items-center w-full max-w-none text-left">
                     {/* Services Column */}
                     <div className="space-y-6">
                         <ServiceCard title="Website Development" icon={Code} />
@@ -48,15 +50,20 @@ const Freelancing = () => {
 
                     {/* Why Choose Me & CTA Column */}
                     <div className="space-y-10">
-                        <div className="bg-white/50 dark:bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 dark:border-gray-800">
-                            <h3 className="text-2xl font-bold font-cyber mb-6">Why Choose Me?</h3>
-                            <div className="space-y-4">
+                        <MagicBentoCard
+                            className="bg-white/50 dark:bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 dark:border-gray-800"
+                            enableStars={true}
+                            enableTilt={true}
+                            style={{ aspectRatio: 'auto', minHeight: 'auto' }}
+                        >
+                            <h3 className="text-2xl font-bold font-cyber mb-6 relative z-10">Why Choose Me?</h3>
+                            <div className="space-y-4 relative z-10">
                                 <BenefitItem text="Clean & maintainable code" />
                                 <BenefitItem text="On-time delivery" />
                                 <BenefitItem text="Beginner-friendly pricing" />
                                 <BenefitItem text="Clear communication" />
                             </div>
-                        </div>
+                        </MagicBentoCard>
 
                         <div className="text-center md:text-left space-y-6">
                             <div>
@@ -81,7 +88,7 @@ const Freelancing = () => {
                             </a>
                         </div>
                     </div>
-                </div>
+                </MagicBento>
             </div>
         </section>
     );

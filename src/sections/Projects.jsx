@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { userData } from '../data/user';
 import { Github, ExternalLink, Folder, X, Target, Zap, Cpu, Shield, TrendingUp, CheckCircle } from 'lucide-react';
+import MagicBento, { MagicBentoCard } from '../components/MagicBento';
 
 const Projects = () => {
     const [selectedProject, setSelectedProject] = useState(null);
@@ -269,7 +270,7 @@ const Projects = () => {
                 </div>
 
                 {/* Projects Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <MagicBento wrapperClassName="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 w-full max-w-none">
                     {projects?.map((project, projectIndex) => (
                         <motion.div
                             key={projectIndex}
@@ -277,69 +278,75 @@ const Projects = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: projectIndex * 0.1 }}
-                            whileHover={{ y: -5 }}
-                            onClick={() => setSelectedProject(project)}
-                            className="bg-white dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-700 p-6 rounded-2xl relative overflow-hidden group shadow-lg hover:shadow-xl dark:shadow-none cursor-pointer transition-all"
+                            className="h-full"
                         >
-                            {/* Hover Effect */}
-                            <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+                            <MagicBentoCard
+                                onClick={() => setSelectedProject(project)}
+                                className="bg-white dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-700 p-6 rounded-2xl relative overflow-hidden group shadow-lg hover:shadow-xl dark:shadow-none cursor-pointer transition-all h-full flex flex-col"
+                                enableStars={false}
+                                enableTilt={true}
+                                style={{ aspectRatio: 'auto', minHeight: 'auto' }}
+                            >
+                                {/* Hover Effect */}
+                                <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
 
-                            <div className="relative z-10">
-                                <div className="flex justify-between items-start mb-6">
-                                    <Folder className="text-cyan-600 dark:text-cyan-400" size={40} />
-                                    <div className="flex gap-4">
-                                        <a
-                                            href={project.github}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            onClick={(e) => e.stopPropagation()}
-                                            className="text-gray-600 hover:text-cyan-600 dark:text-gray-300 dark:hover:text-cyan-400 transition-colors"
-                                        >
-                                            <Github size={20} />
-                                        </a>
-                                        {project.demo && (
+                                <div className="relative z-10 flex flex-col h-full">
+                                    <div className="flex justify-between items-start mb-6">
+                                        <Folder className="text-cyan-600 dark:text-cyan-400" size={40} />
+                                        <div className="flex gap-4">
                                             <a
-                                                href={project.demo}
+                                                href={project.github}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 onClick={(e) => e.stopPropagation()}
                                                 className="text-gray-600 hover:text-cyan-600 dark:text-gray-300 dark:hover:text-cyan-400 transition-colors"
                                             >
-                                                <ExternalLink size={20} />
+                                                <Github size={20} />
                                             </a>
+                                            {project.demo && (
+                                                <a
+                                                    href={project.demo}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    onClick={(e) => e.stopPropagation()}
+                                                    className="text-gray-600 hover:text-cyan-600 dark:text-gray-300 dark:hover:text-cyan-400 transition-colors"
+                                                >
+                                                    <ExternalLink size={20} />
+                                                </a>
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    <h3 className={`text-xl font-bold font-cyber mb-3 ${category.textColor} transition-colors`}>
+                                        {project.title}
+                                    </h3>
+
+                                    <p className="text-gray-700 dark:text-gray-300 text-sm mb-6 leading-relaxed min-h-[60px] flex-grow">
+                                        {project.description}
+                                    </p>
+
+                                    <div className="flex flex-wrap gap-2 mt-auto mb-4">
+                                        {project.tech.slice(0, 3).map((t, i) => (
+                                            <span key={i} className={`text-xs font-mono text-white ${category.bgColor} px-3 py-1.5 rounded font-semibold`}>
+                                                {t}
+                                            </span>
+                                        ))}
+                                        {project.tech.length > 3 && (
+                                            <span className="text-xs font-mono text-gray-600 dark:text-gray-400 px-2 py-1">
+                                                +{project.tech.length - 3} more
+                                            </span>
                                         )}
                                     </div>
+
+                                    <div className={`${category.textColor} text-sm font-semibold flex items-center gap-2 group-hover:gap-3 transition-all mt-auto`}>
+                                        View Details
+                                        <span className="group-hover:translate-x-1 transition-transform">→</span>
+                                    </div>
                                 </div>
-
-                                <h3 className={`text-xl font-bold font-cyber mb-3 ${category.textColor} transition-colors`}>
-                                    {project.title}
-                                </h3>
-
-                                <p className="text-gray-700 dark:text-gray-300 text-sm mb-6 leading-relaxed min-h-[60px]">
-                                    {project.description}
-                                </p>
-
-                                <div className="flex flex-wrap gap-2 mt-auto mb-4">
-                                    {project.tech.slice(0, 3).map((t, i) => (
-                                        <span key={i} className={`text-xs font-mono text-white ${category.bgColor} px-3 py-1.5 rounded font-semibold`}>
-                                            {t}
-                                        </span>
-                                    ))}
-                                    {project.tech.length > 3 && (
-                                        <span className="text-xs font-mono text-gray-600 dark:text-gray-400 px-2 py-1">
-                                            +{project.tech.length - 3} more
-                                        </span>
-                                    )}
-                                </div>
-
-                                <div className={`${category.textColor} text-sm font-semibold flex items-center gap-2 group-hover:gap-3 transition-all`}>
-                                    View Details
-                                    <span className="group-hover:translate-x-1 transition-transform">→</span>
-                                </div>
-                            </div>
+                            </MagicBentoCard>
                         </motion.div>
                     ))}
-                </div>
+                </MagicBento>
             </motion.div>
         );
     };

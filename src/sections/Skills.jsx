@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { userData } from '../data/user';
 import { Database, Code, Server, Wrench, Workflow } from 'lucide-react';
+import MagicBento, { MagicBentoCard } from '../components/MagicBento';
 
 const SkillCard = ({ title, skills, icon: Icon, delay }) => (
     <motion.div
@@ -9,26 +10,32 @@ const SkillCard = ({ title, skills, icon: Icon, delay }) => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay }}
-        className="bg-gray-50 dark:bg-darker border border-gray-200 dark:border-gray-800 p-6 rounded-xl hover:border-cyan/50 hover:shadow-[0_0_15px_rgba(0,243,255,0.1)] transition-all duration-300 group"
     >
-        <div className="flex items-center gap-3 mb-4">
-            <div className="p-3 rounded-lg bg-cyan/10 text-cyan group-hover:bg-cyan group-hover:text-darker transition-colors">
-                <Icon size={24} />
+        <MagicBentoCard
+            className="p-6 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-cyan/50 hover:shadow-[0_0_15px_rgba(0,243,255,0.1)] transition-all duration-300 group bg-gray-50 dark:bg-darker"
+            enableStars={false}
+            enableTilt={true}
+            style={{ aspectRatio: 'auto', minHeight: 'auto' }}
+        >
+            <div className="flex items-center gap-3 mb-4 relative z-10">
+                <div className="p-3 rounded-lg bg-cyan/10 text-cyan group-hover:bg-cyan group-hover:text-darker transition-colors">
+                    <Icon size={24} />
+                </div>
+                <h3 className="text-xl font-bold font-cyber text-gray-900 dark:text-white">{title}</h3>
             </div>
-            <h3 className="text-xl font-bold font-cyber text-gray-900 dark:text-white">{title}</h3>
-        </div>
-        <div className="space-y-3">
-            {skills.map((skill, idx) => (
-                <motion.div
-                    key={idx}
-                    whileHover={{ x: 10, color: '#00f3ff' }}
-                    className="flex justify-between items-center text-sm font-mono text-gray-600 dark:text-gray-400 cursor-pointer p-2 rounded hover:bg-cyan/5 transition-colors"
-                >
-                    <span>{skill}</span>
-                    <span className="opacity-0 group-hover/skill:opacity-100 text-cyan dark:text-neon text-xs">&gt;_</span>
-                </motion.div>
-            ))}
-        </div>
+            <div className="space-y-3 relative z-10">
+                {skills.map((skill, idx) => (
+                    <motion.div
+                        key={idx}
+                        whileHover={{ x: 10, color: '#00f3ff' }}
+                        className="flex justify-between items-center text-sm font-mono text-gray-600 dark:text-gray-400 cursor-pointer p-2 rounded hover:bg-cyan/5 transition-colors"
+                    >
+                        <span>{skill}</span>
+                        <span className="opacity-0 group-hover/skill:opacity-100 text-cyan dark:text-neon text-xs">&gt;_</span>
+                    </motion.div>
+                ))}
+            </div>
+        </MagicBentoCard>
     </motion.div>
 );
 
@@ -48,13 +55,13 @@ const Skills = () => {
                     <p className="text-gray-600 dark:text-gray-400 font-mono">Core processing modules and languages</p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                <MagicBento wrapperClassName="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 w-full max-w-none">
                     <SkillCard title="Frontend" skills={userData.skills.frontend} icon={Code} delay={0} />
                     <SkillCard title="Backend" skills={userData.skills.backend} icon={Server} delay={0.2} />
                     <SkillCard title="Database" skills={userData.skills.database} icon={Database} delay={0.4} />
                     <SkillCard title="Tools" skills={userData.skills.tools} icon={Wrench} delay={0.6} />
                     <SkillCard title="Automation" skills={userData.skills.automation} icon={Workflow} delay={0.8} />
-                </div>
+                </MagicBento>
             </div>
         </section>
     );
