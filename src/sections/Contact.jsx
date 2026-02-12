@@ -4,6 +4,7 @@ import { userData } from '../data/user';
 import { Mail, Linkedin, Github, Send, FileText, CheckCircle, AlertCircle, Instagram, Twitter } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import MagicBento, { MagicBentoCard } from '../components/MagicBento';
+import PixelCard from '../components/PixelCard';
 
 const Contact = () => {
     const formRef = useRef();
@@ -52,7 +53,7 @@ const Contact = () => {
                     <h2 className="text-3xl md:text-4xl font-cyber font-bold mb-3 md:mb-4">
                         Contact Me
                     </h2>
-                    <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 font-mono px-4">
+                    <p className="text-sm md:text-base text-gray-800 dark:text-gray-200 font-mono px-4">
                         Available for freelance commissions and full-time deployment.
                     </p>
                 </motion.div>
@@ -80,7 +81,7 @@ const Contact = () => {
                                     className="block"
                                 >
                                     <MagicBentoCard
-                                        className="flex items-center gap-4 text-cyan dark:text-cyan hover:text-white transition-colors p-4 border border-black/10 dark:border-white/10 rounded-lg bg-white/50 dark:bg-white/5 hover:border-cyan/50 shadow-sm hover:shadow-cyan/20 group"
+                                        className="flex items-center gap-4 text-cyan dark:text-cyan hover:text-white transition-colors p-4 border border-black rounded-lg bg-white/50 dark:bg-white/5 hover:border-cyan/50 shadow-sm hover:shadow-cyan/20 group"
                                         enableStars={false}
                                         enableTilt={true}
                                         style={{ aspectRatio: 'auto', minHeight: 'auto' }}
@@ -97,79 +98,79 @@ const Contact = () => {
                     <div className="flex flex-col h-full">
                         <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4 md:mb-6">Send Message</h3>
 
-                        <MagicBentoCard
-                            className="bg-white/50 dark:bg-white/5 border border-black/10 dark:border-white/10 p-6 rounded-xl flex-1 flex flex-col"
-                            enableStars={true}
-                            enableTilt={false}
-                            style={{ aspectRatio: 'auto', minHeight: 'auto' }}
+                        <PixelCard
+                            variant="pink"
+                            className="bg-white/50 dark:bg-white/5 border border-black rounded-xl w-full h-full"
                         >
-                            <form ref={formRef} onSubmit={handleSubmit} className="space-y-3 md:space-y-4 flex-1 flex flex-col relative z-10">
-                                <div>
-                                    <input
-                                        type="text"
-                                        name="user_name"
-                                        placeholder="Your Name"
-                                        required
-                                        className="w-full bg-white dark:bg-dark border border-gray-200 dark:border-gray-800 p-4 rounded text-gray-900 dark:text-white focus:outline-none focus:border-cyan focus:shadow-[0_0_10px_rgba(0,243,255,0.2)] transition-all font-mono text-sm md:text-base"
-                                    />
-                                </div>
-                                <div>
-                                    <input
-                                        type="email"
-                                        name="user_email"
-                                        placeholder="Your Email"
-                                        required
-                                        className="w-full bg-white dark:bg-dark border border-gray-200 dark:border-gray-800 p-4 rounded text-gray-900 dark:text-white focus:outline-none focus:border-cyan focus:shadow-[0_0_10px_rgba(0,243,255,0.2)] transition-all font-mono text-sm md:text-base"
-                                    />
-                                </div>
-                                <div>
-                                    <input
-                                        type="text"
-                                        name="subject"
-                                        placeholder="Subject"
-                                        required
-                                        className="w-full bg-white dark:bg-dark border border-gray-200 dark:border-gray-800 p-4 rounded text-gray-900 dark:text-white focus:outline-none focus:border-cyan focus:shadow-[0_0_10px_rgba(0,243,255,0.2)] transition-all font-mono text-sm md:text-base"
-                                    />
-                                </div>
-                                <div className="flex-1">
-                                    <textarea
-                                        name="message"
-                                        rows="6"
-                                        placeholder="Your Message..."
-                                        required
-                                        className="w-full h-full min-h-[150px] bg-white dark:bg-dark border border-gray-200 dark:border-gray-800 p-4 rounded text-gray-900 dark:text-white focus:outline-none focus:border-cyan focus:shadow-[0_0_10px_rgba(0,243,255,0.2)] transition-all font-mono text-sm md:text-base resize-none"
-                                    ></textarea>
-                                </div>
+                            <div className="relative z-10 w-full h-full p-4 md:p-6 flex flex-col">
+                                <form ref={formRef} onSubmit={handleSubmit} className="space-y-3 md:space-y-4 flex-1 flex flex-col relative w-full h-full">
+                                    <div>
+                                        <input
+                                            type="text"
+                                            name="user_name"
+                                            placeholder="Your Name"
+                                            required
+                                            className="w-full bg-white dark:bg-dark border border-gray-200 dark:border-gray-800 p-4 rounded text-gray-900 dark:text-white focus:outline-none focus:border-cyan focus:shadow-[0_0_10px_rgba(0,243,255,0.2)] transition-all font-mono text-sm md:text-base relative z-20"
+                                        />
+                                    </div>
+                                    <div>
+                                        <input
+                                            type="email"
+                                            name="user_email"
+                                            placeholder="Your Email"
+                                            required
+                                            className="w-full bg-white dark:bg-dark border border-gray-200 dark:border-gray-800 p-4 rounded text-gray-900 dark:text-white focus:outline-none focus:border-cyan focus:shadow-[0_0_10px_rgba(0,243,255,0.2)] transition-all font-mono text-sm md:text-base relative z-20"
+                                        />
+                                    </div>
+                                    <div>
+                                        <input
+                                            type="text"
+                                            name="subject"
+                                            placeholder="Subject"
+                                            required
+                                            className="w-full bg-white dark:bg-dark border border-gray-200 dark:border-gray-800 p-4 rounded text-gray-900 dark:text-white focus:outline-none focus:border-cyan focus:shadow-[0_0_10px_rgba(0,243,255,0.2)] transition-all font-mono text-sm md:text-base relative z-20"
+                                        />
+                                    </div>
+                                    <div className="flex-1">
+                                        <textarea
+                                            name="message"
+                                            rows="6"
+                                            placeholder="Your Message..."
+                                            required
+                                            className="w-full h-full min-h-[150px] bg-white dark:bg-dark border border-gray-200 dark:border-gray-800 p-4 rounded text-gray-900 dark:text-white focus:outline-none focus:border-cyan focus:shadow-[0_0_10px_rgba(0,243,255,0.2)] transition-all font-mono text-sm md:text-base resize-none relative z-20"
+                                        ></textarea>
+                                    </div>
 
-                                {/* Status Message */}
-                                {status.message && (
-                                    <motion.div
-                                        initial={{ opacity: 0, y: -10 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        className={`flex items-center gap-2 p-3 rounded ${status.type === 'success'
-                                            ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 border border-green-300 dark:border-green-700'
-                                            : 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 border border-red-300 dark:border-red-700'
-                                            }`}
+                                    {/* Status Message */}
+                                    {status.message && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: -10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            className={`flex items-center gap-2 p-3 rounded z-20 relative ${status.type === 'success'
+                                                ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 border border-green-300 dark:border-green-700'
+                                                : 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 border border-red-300 dark:border-red-700'
+                                                }`}
+                                        >
+                                            {status.type === 'success' ? <CheckCircle size={18} /> : <AlertCircle size={18} />}
+                                            <span className="text-sm">{status.message}</span>
+                                        </motion.div>
+                                    )}
+
+                                    <button
+                                        type="submit"
+                                        disabled={isSubmitting}
+                                        className="w-full cyber-button group flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer relative z-20"
                                     >
-                                        {status.type === 'success' ? <CheckCircle size={18} /> : <AlertCircle size={18} />}
-                                        <span className="text-sm">{status.message}</span>
-                                    </motion.div>
-                                )}
-
-                                <button
-                                    type="submit"
-                                    disabled={isSubmitting}
-                                    className="w-full cyber-button group flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
-                                >
-                                    <Send size={18} />
-                                    <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
-                                </button>
-                            </form>
-                        </MagicBentoCard>
+                                        <Send size={18} />
+                                        <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
+                                    </button>
+                                </form>
+                            </div>
+                        </PixelCard>
                     </div>
                 </MagicBento>
 
-                <div className="text-center mt-20 text-gray-500 dark:text-gray-600 font-mono text-sm">
+                <div className="text-center mt-20 text-gray-700 dark:text-gray-400 font-mono text-sm">
                     <p>{new Date().getFullYear()} @ {userData.personal.name.toUpperCase()}</p>
                 </div>
             </div>

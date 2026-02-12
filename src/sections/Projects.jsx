@@ -3,14 +3,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { userData } from '../data/user';
 import { Github, ExternalLink, Folder, X, Target, Zap, Cpu, Shield, TrendingUp, CheckCircle } from 'lucide-react';
 import MagicBento, { MagicBentoCard } from '../components/MagicBento';
+import PixelCard from '../components/PixelCard';
 
 const Projects = () => {
     const [selectedProject, setSelectedProject] = useState(null);
 
     const categories = [
-        { id: 'fullstack', label: 'Full Stack Projects', icon: Cpu, color: 'from-blue-500 to-cyan-500', textColor: 'text-blue-500', bgColor: 'bg-blue-500' },
-        { id: 'ml', label: 'Machine Learning Projects', icon: TrendingUp, color: 'from-purple-500 to-pink-500', textColor: 'text-purple-500', bgColor: 'bg-purple-500' },
-        { id: 'iot', label: 'IoT Projects', icon: Zap, color: 'from-green-500 to-emerald-500', textColor: 'text-green-500', bgColor: 'bg-green-500' }
+        { id: 'fullstack', label: 'Full Stack Projects', icon: Cpu, color: 'from-blue-500 to-cyan-500', textColor: 'text-blue-600 dark:text-blue-400', bgColor: 'bg-blue-500' },
+        { id: 'ml', label: 'Machine Learning Projects', icon: TrendingUp, color: 'from-purple-500 to-pink-500', textColor: 'text-purple-600 dark:text-purple-400', bgColor: 'bg-purple-500' },
+        { id: 'iot', label: 'IoT Projects', icon: Zap, color: 'from-green-500 to-emerald-500', textColor: 'text-green-600 dark:text-green-400', bgColor: 'bg-green-500' }
     ];
 
     const ProjectModal = ({ project, onClose }) => {
@@ -47,7 +48,7 @@ const Projects = () => {
                                 <h2 className="text-2xl md:text-3xl font-cyber font-bold text-gray-900 dark:text-white mb-2">
                                     {project.title}
                                 </h2>
-                                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                <p className="text-gray-900 dark:text-gray-100 leading-relaxed">
                                     {project.description}
                                 </p>
                             </div>
@@ -280,70 +281,72 @@ const Projects = () => {
                             transition={{ delay: projectIndex * 0.1 }}
                             className="h-full"
                         >
-                            <MagicBentoCard
-                                onClick={() => setSelectedProject(project)}
-                                className="border border-black/10 dark:border-white/10 p-6 rounded-2xl relative overflow-hidden group shadow-lg hover:shadow-xl dark:shadow-none cursor-pointer transition-all h-full flex flex-col"
-                                enableStars={false}
-                                enableTilt={true}
-                                style={{ aspectRatio: 'auto', minHeight: 'auto' }}
+                            <PixelCard
+                                variant={category.id === 'fullstack' ? 'blue' : category.id === 'ml' ? 'pink' : 'yellow'}
+                                className="border border-black rounded-2xl relative overflow-hidden group shadow-lg hover:shadow-xl dark:shadow-none cursor-pointer transition-all h-full w-full"
                             >
-                                {/* Hover Effect */}
-                                <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+                                <div
+                                    className="relative z-10 w-full h-full p-4 md:p-6 flex flex-col"
+                                    onClick={() => setSelectedProject(project)}
+                                >
+                                    {/* Hover Effect */}
+                                    <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none`} />
 
-                                <div className="relative z-10 flex flex-col h-full">
-                                    <div className="flex justify-between items-start mb-6">
-                                        <Folder className="text-cyan-600 dark:text-cyan-400" size={40} />
-                                        <div className="flex gap-4">
-                                            <a
-                                                href={project.github}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                onClick={(e) => e.stopPropagation()}
-                                                className="text-gray-600 hover:text-cyan-600 dark:text-gray-300 dark:hover:text-cyan-400 transition-colors"
-                                            >
-                                                <Github size={20} />
-                                            </a>
-                                            {project.demo && (
+                                    <div className="relative z-10 flex flex-col h-full">
+                                        <div className="flex justify-between items-start mb-6">
+                                            <Folder className="text-cyan-600 dark:text-cyan-400" size={40} />
+                                            <div className="flex gap-4">
                                                 <a
-                                                    href={project.demo}
+                                                    href={project.github}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                     onClick={(e) => e.stopPropagation()}
                                                     className="text-gray-600 hover:text-cyan-600 dark:text-gray-300 dark:hover:text-cyan-400 transition-colors"
                                                 >
-                                                    <ExternalLink size={20} />
+                                                    <Github size={20} />
                                                 </a>
+                                                {project.demo && (
+                                                    <a
+                                                        href={project.demo}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        onClick={(e) => e.stopPropagation()}
+                                                        className="text-gray-600 hover:text-cyan-600 dark:text-gray-300 dark:hover:text-cyan-400 transition-colors"
+                                                    >
+                                                        <ExternalLink size={20} />
+                                                    </a>
+                                                )}
+                                            </div>
+                                        </div>
+
+                                        <h3 className={`text-xl font-bold font-cyber mb-3 ${category.textColor} transition-colors`}>
+                                            {project.title}
+                                        </h3>
+
+                                        <p className="text-gray-900 dark:text-gray-100 text-sm mb-6 leading-relaxed min-h-[60px] flex-grow">
+                                            {project.description}
+                                        </p>
+
+                                        <div className="flex flex-wrap gap-2 mt-auto mb-4">
+                                            {project.tech.slice(0, 3).map((t, i) => (
+                                                <span key={i} className={`text-xs font-mono text-white ${category.bgColor} px-3 py-1.5 rounded font-semibold`}>
+                                                    {t}
+                                                </span>
+                                            ))}
+                                            {project.tech.length > 3 && (
+                                                <span className="text-xs font-mono text-gray-600 dark:text-gray-400 px-2 py-1">
+                                                    +{project.tech.length - 3} more
+                                                </span>
                                             )}
                                         </div>
-                                    </div>
 
-                                    <h3 className={`text-xl font-bold font-cyber mb-3 ${category.textColor} transition-colors`}>
-                                        {project.title}
-                                    </h3>
-
-                                    <p className="text-gray-700 dark:text-gray-300 text-sm mb-6 leading-relaxed min-h-[60px] flex-grow">
-                                        {project.description}
-                                    </p>
-
-                                    <div className="flex flex-wrap gap-2 mt-auto mb-4">
-                                        {project.tech.slice(0, 3).map((t, i) => (
-                                            <span key={i} className={`text-xs font-mono text-white ${category.bgColor} px-3 py-1.5 rounded font-semibold`}>
-                                                {t}
-                                            </span>
-                                        ))}
-                                        {project.tech.length > 3 && (
-                                            <span className="text-xs font-mono text-gray-600 dark:text-gray-400 px-2 py-1">
-                                                +{project.tech.length - 3} more
-                                            </span>
-                                        )}
-                                    </div>
-
-                                    <div className={`${category.textColor} text-sm font-semibold flex items-center gap-2 group-hover:gap-3 transition-all mt-auto`}>
-                                        View Details
-                                        <span className="group-hover:translate-x-1 transition-transform">→</span>
+                                        <div className={`${category.textColor} text-sm font-semibold flex items-center gap-2 group-hover:gap-3 transition-all mt-auto`}>
+                                            View Details
+                                            <span className="group-hover:translate-x-1 transition-transform">→</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </MagicBentoCard>
+                            </PixelCard>
                         </motion.div>
                     ))}
                 </MagicBento>

@@ -4,7 +4,7 @@ import { userData } from '../data/user';
 import { Cpu } from 'lucide-react';
 
 import DecryptedText from '../components/DecryptedText';
-import ParticleText from '../components/ParticleText';
+import GlitchText from '../components/GlitchText';
 
 const Hero = () => {
 
@@ -20,12 +20,7 @@ const Hero = () => {
                 className="z-10 text-center space-y-4 md:space-y-6 max-w-4xl w-full"
             >
                 <div className="h-[120px] sm:h-[150px] md:h-[200px] w-full flex items-center justify-center relative z-20">
-                    <ParticleText
-                        text={userData.personal.name}
-                        fontSize={80}
-                        colors={["#ffffff", "#00f3ff", "#00e5ff"]}
-                        fontFamily="'Fauna One', serif"
-                    />
+                    <GlitchText text={userData.personal.name} />
                 </div>
 
                 <div className="h-px w-20 md:w-32 bg-gradient-to-r from-transparent via-cyan to-transparent mx-auto my-4 md:my-6" />

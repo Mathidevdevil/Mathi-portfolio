@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { userData } from '../data/user';
 import { Database, Code, Server, Wrench, Workflow } from 'lucide-react';
 import MagicBento, { MagicBentoCard } from '../components/MagicBento';
+import PixelCard from '../components/PixelCard';
 
 const SkillCard = ({ title, skills, icon: Icon, delay }) => (
     <motion.div
@@ -11,31 +12,31 @@ const SkillCard = ({ title, skills, icon: Icon, delay }) => (
         viewport={{ once: true }}
         transition={{ delay }}
     >
-        <MagicBentoCard
-            className="p-6 rounded-xl border border-black/10 dark:border-white/10 hover:border-cyan/50 hover:shadow-[0_0_15px_rgba(0,243,255,0.1)] transition-all duration-300 group"
-            enableStars={false}
-            enableTilt={true}
-            style={{ aspectRatio: 'auto', minHeight: 'auto' }}
+        <PixelCard
+            variant="blue"
+            className="rounded-xl border border-black hover:border-cyan/50 hover:shadow-[0_0_15px_rgba(0,243,255,0.1)] transition-all duration-300 group w-full h-full"
         >
-            <div className="flex items-center gap-3 mb-4 relative z-10">
-                <div className="p-3 rounded-lg bg-cyan/10 text-cyan group-hover:bg-cyan group-hover:text-darker transition-colors">
-                    <Icon size={24} />
+            <div className="relative z-10 w-full h-full p-4 md:p-6 flex flex-col">
+                <div className="flex items-center gap-3 mb-4 relative z-10">
+                    <div className="p-3 rounded-lg bg-cyan/10 text-cyan group-hover:bg-cyan group-hover:text-darker transition-colors">
+                        <Icon size={24} />
+                    </div>
+                    <h3 className="text-xl font-bold font-cyber text-cyan-700 dark:text-cyan-400">{title}</h3>
                 </div>
-                <h3 className="text-xl font-bold font-cyber text-cyan-700 dark:text-cyan-400">{title}</h3>
+                <div className="space-y-3 relative z-10">
+                    {skills.map((skill, idx) => (
+                        <motion.div
+                            key={idx}
+                            whileHover={{ x: 10, color: '#00f3ff' }}
+                            className="flex justify-between items-center text-sm font-mono text-gray-900 dark:text-gray-100 cursor-pointer p-2 rounded hover:bg-cyan/5 transition-colors"
+                        >
+                            <span>{skill}</span>
+                            <span className="opacity-0 group-hover/skill:opacity-100 text-cyan dark:text-neon text-xs">&gt;_</span>
+                        </motion.div>
+                    ))}
+                </div>
             </div>
-            <div className="space-y-3 relative z-10">
-                {skills.map((skill, idx) => (
-                    <motion.div
-                        key={idx}
-                        whileHover={{ x: 10, color: '#00f3ff' }}
-                        className="flex justify-between items-center text-sm font-mono text-gray-700 dark:text-gray-300 cursor-pointer p-2 rounded hover:bg-cyan/5 transition-colors"
-                    >
-                        <span>{skill}</span>
-                        <span className="opacity-0 group-hover/skill:opacity-100 text-cyan dark:text-neon text-xs">&gt;_</span>
-                    </motion.div>
-                ))}
-            </div>
-        </MagicBentoCard>
+        </PixelCard>
     </motion.div>
 );
 

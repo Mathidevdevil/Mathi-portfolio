@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import ClickSpark from './components/ClickSpark';
 import GradientNavBar from './components/GradientNavBar';
 
-import Iridescence from './components/Iridescence';
+import BubbleBackground from './components/BubbleBackground';
 import Preloader from './components/Preloader';
 
 // Lazy load sections
@@ -56,34 +56,25 @@ function App() {
       </AnimatePresence>
 
       {!isLoading && (
-        <ClickSpark
-          sparkColor='#fff'
-          sparkSize={10}
-          sparkRadius={15}
-          sparkCount={8}
-          duration={400}
-        >
-          <div className={`${isDark ? 'dark' : ''}`}>
+        <div className={`${isDark ? 'dark' : ''}`}>
+          <BubbleBackground interactive className="z-0" />
+
+          <ClickSpark
+            sparkColor='#fff'
+            sparkSize={10}
+            sparkRadius={15}
+            sparkCount={8}
+            duration={400}
+          >
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className="min-h-screen text-gray-900 dark:text-white font-sans selection:bg-cyan/30 selection:text-cyan transition-colors duration-300 relative"
+              className="min-h-screen text-gray-900 dark:text-white font-sans selection:bg-cyan/30 selection:text-cyan transition-colors duration-300 relative z-10"
             >
 
-              {/* Global Background */}
-
-              <div className="fixed inset-0 z-0">
-                <Iridescence
-                  color={[0.1, 0.1, 0.1]}
-                  mouseReact
-                  amplitude={0.1}
-                  speed={1}
-                />
-              </div>
-
               {/* Navigation */}
-              <div className="fixed top-0 left-0 right-0 z-50 transition-colors duration-300">
+              <div className="fixed top-0 left-0 right-0 z-50 transition-colors duration-300 backdrop-blur-md bg-white/5 dark:bg-darker/5">
                 <GradientNavBar
                   items={navLinks.map(link => ({ label: link.title, href: link.href }))}
                   isDark={isDark}
@@ -132,8 +123,8 @@ function App() {
               </main>
 
             </motion.div>
-          </div>
-        </ClickSpark>
+          </ClickSpark>
+        </div>
       )}
     </>
   );
