@@ -49,6 +49,7 @@ export const userData = {
                 description: "A web-based system designed to efficiently store and manage student personal and academic records. Automates record handling to reduce manual errors.",
                 tech: ["Java", "MySQL", "HTML/CSS"],
                 github: "https://github.com/Mathidevdevil/Student-Management-System",
+                demo: "https://student-management-system-eight-lake.vercel.app/",
                 details: {
                     objectives: [
                         "Design an efficient student record management system",
@@ -82,7 +83,7 @@ export const userData = {
                 description: "A responsive e-commerce web application allowing users to browse products and manage a shopping cart. Features a clean UI and smooth navigation.",
                 tech: ["React", "HTML/CSS", "JavaScript"],
                 github: "https://github.com/Mathidevdevil/Online-shopping-website",
-                demo: "https://online-shophub.netlify.app/",
+                demo: "https://online-shopping-mu-six.vercel.app/",
                 details: {
                     objectives: [
                         "Build a modern e-commerce platform",

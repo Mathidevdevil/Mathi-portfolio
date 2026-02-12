@@ -4,6 +4,7 @@ import { userData } from '../data/user';
 import { Cpu } from 'lucide-react';
 
 import DecryptedText from '../components/DecryptedText';
+import ParticleText from '../components/ParticleText';
 
 const Hero = () => {
 
@@ -18,12 +19,14 @@ const Hero = () => {
                 transition={{ duration: 0.8 }}
                 className="z-10 text-center space-y-4 md:space-y-6 max-w-4xl w-full"
             >
-                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-fauna tracking-tighter mb-2 relative group px-2">
-                    <span className="relative inline-block hover:scale-105 transition-transform duration-300">
-                        {userData.personal.name}
-                        <span className="absolute -inset-1 animate-pulse-fast opacity-0 group-hover:opacity-20 bg-cyan blur-lg"></span>
-                    </span>
-                </h1>
+                <div className="h-[120px] sm:h-[150px] md:h-[200px] w-full flex items-center justify-center relative z-20">
+                    <ParticleText
+                        text={userData.personal.name}
+                        fontSize={80}
+                        colors={["#ffffff", "#00f3ff", "#00e5ff"]}
+                        fontFamily="'Fauna One', serif"
+                    />
+                </div>
 
                 <div className="h-px w-20 md:w-32 bg-gradient-to-r from-transparent via-cyan to-transparent mx-auto my-4 md:my-6" />
 
