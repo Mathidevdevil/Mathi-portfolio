@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { userData } from '../data/user';
 import { Award, ExternalLink, Calendar } from 'lucide-react';
 import MagicBento, { MagicBentoCard } from '../components/MagicBento';
@@ -9,26 +8,19 @@ const Certifications = () => {
     return (
         <section id="certifications" className="py-12 md:py-20 bg-transparent text-gray-900 dark:text-white relative transition-colors duration-300">
             <div className="container mx-auto px-4 md:px-6">
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
+                <div
                     className="mb-8 md:mb-16 flex items-center gap-3 md:gap-4"
                 >
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-cyber font-bold text-gray-900 dark:text-white">
                         Acquired Certificates
                     </h2>
                     <div className="h-px flex-1 bg-gray-300 dark:bg-gray-800" />
-                </motion.div>
+                </div>
 
                 <MagicBento wrapperClassName="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 w-full max-w-none">
                     {userData.certifications.map((cert, index) => (
-                        <motion.div
+                        <div
                             key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
                         >
                             <PixelCard
                                 variant="yellow"
@@ -70,7 +62,7 @@ const Certifications = () => {
                                     </div>
                                 </div>
                             </PixelCard>
-                        </motion.div>
+                        </div>
                     ))}
                 </MagicBento>
             </div>

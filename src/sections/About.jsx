@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { userData } from '../data/user';
 import { Award, Download } from 'lucide-react';
 import MagicBento, { MagicBentoCard } from '../components/MagicBento';
@@ -9,10 +8,7 @@ const About = () => {
     return (
         <section id="about" className="py-12 md:py-20 bg-transparent text-gray-900 dark:text-white relative overflow-hidden transition-colors duration-300">
             <div className="container mx-auto px-4 md:px-6 relative z-10">
-                <motion.div
-                    initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
+                <div
                     className="w-full"
                 >
                     <MagicBento
@@ -90,7 +86,7 @@ const About = () => {
                             ))}
                         </div>
                     </MagicBento>
-                </motion.div>
+                </div>
             </div>
         </section>
     );

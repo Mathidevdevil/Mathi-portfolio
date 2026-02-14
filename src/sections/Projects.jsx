@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { userData } from '../data/user';
 import { Github, ExternalLink, Folder, X, Target, Zap, Cpu, Shield, TrendingUp, CheckCircle } from 'lucide-react';
 import MagicBento, { MagicBentoCard } from '../components/MagicBento';
@@ -18,17 +17,11 @@ const Projects = () => {
         if (!project || !project.details) return null;
 
         return (
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
+            <div
                 className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
                 onClick={onClose}
             >
-                <motion.div
-                    initial={{ scale: 0.9, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    exit={{ scale: 0.9, opacity: 0 }}
+                <div
                     className="bg-white dark:bg-darker border border-gray-200 dark:border-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative"
                     onClick={(e) => e.stopPropagation()}
                 >
@@ -244,8 +237,8 @@ const Projects = () => {
                             </a>
                         )}
                     </div>
-                </motion.div>
-            </motion.div>
+                </div>
+            </div>
         );
     };
 
@@ -253,11 +246,7 @@ const Projects = () => {
         const Icon = category.icon;
 
         return (
-            <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
+            <div
                 className="mb-16"
             >
                 {/* Category Header */}
@@ -273,12 +262,8 @@ const Projects = () => {
                 {/* Projects Grid */}
                 <MagicBento wrapperClassName="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 w-full max-w-none">
                     {projects?.map((project, projectIndex) => (
-                        <motion.div
+                        <div
                             key={projectIndex}
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: projectIndex * 0.1 }}
                             className="h-full"
                         >
                             <PixelCard
@@ -347,27 +332,24 @@ const Projects = () => {
                                     </div>
                                 </div>
                             </PixelCard>
-                        </motion.div>
+                        </div>
                     ))}
                 </MagicBento>
-            </motion.div>
+            </div>
         );
     };
 
     return (
         <section id="projects" className="py-12 md:py-20 bg-transparent text-gray-900 dark:text-white transition-colors duration-300">
             <div className="container mx-auto px-4 md:px-6">
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
+                <div
                     className="mb-12 md:mb-16 flex items-center gap-3 md:gap-4"
                 >
                     <h2 className="text-3xl md:text-4xl font-cyber font-bold text-gray-900 dark:text-white whitespace-nowrap">
                         My Works
                     </h2>
                     <div className="h-px flex-1 bg-gray-300 dark:bg-gray-800" />
-                </motion.div>
+                </div>
 
                 {/* All Categories Displayed Vertically */}
                 {categories.map((category, index) => (
@@ -381,14 +363,12 @@ const Projects = () => {
             </div>
 
             {/* Project Details Modal */}
-            <AnimatePresence>
-                {selectedProject && (
-                    <ProjectModal
-                        project={selectedProject}
-                        onClose={() => setSelectedProject(null)}
-                    />
-                )}
-            </AnimatePresence>
+            {selectedProject && (
+                <ProjectModal
+                    project={selectedProject}
+                    onClose={() => setSelectedProject(null)}
+                />
+            )}
         </section>
     );
 };

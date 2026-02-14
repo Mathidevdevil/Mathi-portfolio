@@ -1,10 +1,27 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Sun, Moon, Menu, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Sun, Moon, Menu, X, Clock } from 'lucide-react';
 
 const GradientNavBar = ({ items, isDark, toggleTheme, toggleMenu, isMenuOpen }) => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
     const [activeIndex, setActiveIndex] = useState(0);
+    const [time, setTime] = useState(new Date());
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setTime(new Date());
+        }, 1000);
+
+        return () => clearInterval(timer);
+    }, []);
+
+    const formatTime = (date) => {
+        return date.toLocaleTimeString('en-US', {
+            hour12: false,
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        });
+    };
 
     return (
         <nav className="relative flex items-center justify-between px-8 py-4 w-full bg-transparent z-50">
@@ -34,10 +51,8 @@ const GradientNavBar = ({ items, isDark, toggleTheme, toggleMenu, isMenuOpen }) 
 
                             {/* Magic Line - Sliding Underline */}
                             {((hoveredIndex === index) || (hoveredIndex === null && isActive)) && (
-                                <motion.div
-                                    layoutId="navbar-underline"
+                                <div
                                     className="absolute bottom-0 left-0 right-0 h-[2px] bg-cyan shadow-[0_0_10px_rgba(34,211,238,0.8)]"
-                                    transition={{ type: 'spring', stiffness: 350, damping: 30 }}
                                 />
                             )}
                         </li>
@@ -45,8 +60,14 @@ const GradientNavBar = ({ items, isDark, toggleTheme, toggleMenu, isMenuOpen }) 
                 })}
             </ul>
 
-            {/* Right Side: Theme Toggle & Mobile Menu */}
+            {/* Right Side: Clock, Theme Toggle & Mobile Menu */}
             <div className="flex items-center gap-4 z-20">
+                {/* Clock Display */}
+                <div className="hidden md:flex items-center gap-2 text-cyan font-cyber text-sm tracking-widest text-glow">
+                    <Clock size={16} />
+                    <span suppressHydrationWarning>{formatTime(time)}</span>
+                </div>
+
                 <button
                     onClick={toggleTheme}
                     className="text-gray-900 dark:text-white hover:text-cyan transition-colors p-2 rounded-full hover:bg-white/10"

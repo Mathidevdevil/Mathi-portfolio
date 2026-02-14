@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { userData } from '../data/user';
 import { Cpu } from 'lucide-react';
 
@@ -13,10 +12,7 @@ const Hero = () => {
             {/* Decorative Glows (kept but reduced for cleaner look) */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-cyan/5 dark:bg-cyan/5 rounded-full blur-[100px] pointer-events-none" />
 
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
+            <div
                 className="z-10 text-center space-y-4 md:space-y-6 max-w-4xl w-full"
             >
                 <div className="h-[120px] sm:h-[150px] md:h-[200px] w-full flex items-center justify-center relative z-20">
@@ -29,12 +25,7 @@ const Hero = () => {
                     I am a <span className="text-cyan dark:text-neon">
                         <DecryptedText
                             text={userData.personal.role}
-                            speed={60}
-                            maxIterations={20}
-                            revealDirection="center"
-                            animateOn="view"
                             className="text-cyan dark:text-neon font-bold"
-                            encryptedClassName="text-cyan/50 dark:text-neon/50"
                         />
                     </span>
                 </h2>
@@ -61,7 +52,7 @@ const Hero = () => {
                     </a>
 
                 </div>
-            </motion.div>
+            </div>
 
 
         </section>

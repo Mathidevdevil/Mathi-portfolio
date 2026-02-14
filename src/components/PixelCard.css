@@ -1,31 +1,42 @@
-.pixel-card {
-    height: 100%;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    display: grid;
-    place-items: stretch;
-
-    border-style: solid;
-    /* border handled by tailwind */
-    border-radius: 25px;
-    isolation: isolate;
-    transition: border-color 200ms cubic-bezier(0.5, 1, 0.89, 1);
-    user-select: none;
-    /* Removed min-height: 400px to allow fluid sizing */
-    /* Ensure content fits if needed */
-}
-
 .pixel-canvas {
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 0;
     display: block;
+    z-index: 0;
     pointer-events: none;
-    /* Let clicks pass through */
+}
+
+.pixel-card {
+    /* Removed fixed dimensions to allow flexibility in the grid */
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    /* place-items: center;  Removed to allow content to flow naturally */
+    /* aspect-ratio: 4 / 5; Removed to fit content */
+    border: 1px solid #e2e8f0;
+    /* Light mode border (slate-200) */
+    border-radius: 12px;
+    /* Adjusted radius to match existing design */
+    isolation: isolate;
+    transition: border-color 200ms cubic-bezier(0.5, 1, 0.89, 1);
+    user-select: none;
+    background-color: transparent;
+    /* Ensure transparency */
+}
+
+/* Dark mode overrides */
+.dark .pixel-card {
+    border: 1px solid #27272a;
+    /* Dark mode border (zinc-800) */
+}
+
+/* Ensure content sits on top of canvas */
+.pixel-card>*:not(.pixel-canvas) {
+    position: relative;
+    z-index: 10;
 }
 
 .pixel-card::before {
@@ -33,22 +44,20 @@
     position: absolute;
     inset: 0;
     margin: auto;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, #09090b, transparent 85%);
+    aspect-ratio: 1;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.05), transparent 85%);
+    /* Light mode gradient */
     opacity: 0;
     transition: opacity 800ms cubic-bezier(0.5, 1, 0.89, 1);
     z-index: 1;
-    pointer-events: none;
+}
+
+.dark .pixel-card::before {
+    background: radial-gradient(circle, #09090b, transparent 85%);
+    /* Dark mode gradient */
 }
 
 .pixel-card:hover::before,
 .pixel-card:focus-within::before {
     opacity: 1;
-}
-
-/* Ensure content is above pixels */
-.pixel-card>*:not(.pixel-canvas) {
-    position: relative;
-    z-index: 10;
 }

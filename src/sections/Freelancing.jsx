@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Code, Server, Wrench, CheckCircle, Smartphone } from 'lucide-react';
 import MagicBento, { MagicBentoCard } from '../components/MagicBento';
 import PixelCard from '../components/PixelCard';
@@ -29,17 +28,14 @@ const Freelancing = () => {
     return (
         <section id="freelancing" className="py-20 bg-transparent text-gray-900 dark:text-white relative transition-colors duration-300">
             <div className="container mx-auto px-6">
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
+                <div
                     className="text-center mb-16"
                 >
                     <h2 className="text-4xl font-cyber font-bold mb-4">
                         <span className="text-cyan dark:text-neon">&lt;</span> Freelancing Services <span className="text-cyan dark:text-neon">/&gt;</span>
                     </h2>
                     <p className="text-gray-600 dark:text-gray-400 font-mono">Professional Web Solutions for Your Business</p>
-                </motion.div>
+                </div>
 
                 <MagicBento wrapperClassName="grid md:grid-cols-2 gap-12 items-center w-full max-w-none text-left">
                     {/* Services Column */}
