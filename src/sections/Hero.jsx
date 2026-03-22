@@ -4,6 +4,7 @@ import { Cpu } from 'lucide-react';
 
 import DecryptedText from '../components/DecryptedText';
 import GlitchText from '../components/GlitchText';
+import profilePic from '../assets/images/profile1.png';
 
 const Hero = () => {
 
@@ -13,11 +14,17 @@ const Hero = () => {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-cyan/5 dark:bg-cyan/5 rounded-full blur-[100px] pointer-events-none" />
 
             <div
-                className="z-10 text-center space-y-4 md:space-y-6 max-w-4xl w-full"
+                className="z-10 text-center space-y-4 md:space-y-6 max-w-4xl w-full flex flex-col items-center"
             >
-                <div className="h-[120px] sm:h-[150px] md:h-[200px] w-full flex items-center justify-center relative z-20">
+                {/* Profile Avatar */}
+                <div className="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden bg-black border-4 border-cyan dark:border-neon shadow-[0_0_20px_rgba(255,0,60,0.5)] relative z-20 mb-4 md:mb-8 transition-transform hover:scale-105 duration-300">
+                    <img src={profilePic} alt={userData.personal.name} className="w-full h-full object-cover" />
+                </div>
+
+                <div className="w-full flex items-center justify-center relative z-20 mt-4 md:mt-8">
                     <GlitchText text={userData.personal.name} />
                 </div>
+
 
                 <div className="h-px w-20 md:w-32 bg-gradient-to-r from-transparent via-cyan to-transparent mx-auto my-4 md:my-6" />
 

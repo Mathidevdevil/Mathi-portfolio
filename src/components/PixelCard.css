@@ -10,21 +10,15 @@
 }
 
 .pixel-card {
-    /* Removed fixed dimensions to allow flexibility in the grid */
     position: relative;
     overflow: hidden;
     display: grid;
-    /* place-items: center;  Removed to allow content to flow naturally */
-    /* aspect-ratio: 4 / 5; Removed to fit content */
     border: 1px solid #e2e8f0;
-    /* Light mode border (slate-200) */
     border-radius: 12px;
-    /* Adjusted radius to match existing design */
     isolation: isolate;
     transition: border-color 200ms cubic-bezier(0.5, 1, 0.89, 1);
     user-select: none;
     background-color: transparent;
-    /* Ensure transparency */
 }
 
 /* Dark mode overrides */

@@ -12,6 +12,12 @@ const Certifications = lazy(() => import('./sections/Certifications'));
 const Freelancing = lazy(() => import('./sections/Freelancing'));
 const Contact = lazy(() => import('./sections/Contact'));
 
+const LoadingSpinner = () => (
+  <div className="flex items-center justify-center py-20">
+    <div className="w-10 h-10 border-4 border-cyan/30 border-t-cyan rounded-full animate-spin"></div>
+  </div>
+);
+
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDark, setIsDark] = useState(true);
@@ -29,11 +35,6 @@ function App() {
     { title: 'CONTACT', href: '#contact' },
   ];
 
-  const LoadingSpinner = () => (
-    <div className="flex items-center justify-center py-20">
-      <div className="w-10 h-10 border-4 border-cyan/30 border-t-cyan rounded-full animate-spin"></div>
-    </div>
-  );
 
   return (
     <>

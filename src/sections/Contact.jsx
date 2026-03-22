@@ -105,7 +105,7 @@ const Contact = () => {
                                             name="user_name"
                                             placeholder="Your Name"
                                             required
-                                            className="w-full bg-white dark:bg-dark border border-gray-200 dark:border-gray-800 p-4 rounded text-gray-900 dark:text-white focus:outline-none focus:border-cyan focus:shadow-[0_0_10px_rgba(0,243,255,0.2)] transition-all font-mono text-sm md:text-base relative z-20"
+                                            className="w-full bg-white dark:bg-dark border border-gray-200 dark:border-gray-800 p-4 rounded text-gray-900 dark:text-white focus:outline-none focus:border-cyan focus:shadow-[0_0_10px_rgba(255,0,60,0.2)] transition-all font-mono text-sm md:text-base relative z-20"
                                         />
                                     </div>
                                     <div>
@@ -114,7 +114,7 @@ const Contact = () => {
                                             name="user_email"
                                             placeholder="Your Email"
                                             required
-                                            className="w-full bg-white dark:bg-dark border border-gray-200 dark:border-gray-800 p-4 rounded text-gray-900 dark:text-white focus:outline-none focus:border-cyan focus:shadow-[0_0_10px_rgba(0,243,255,0.2)] transition-all font-mono text-sm md:text-base relative z-20"
+                                            className="w-full bg-white dark:bg-dark border border-gray-200 dark:border-gray-800 p-4 rounded text-gray-900 dark:text-white focus:outline-none focus:border-cyan focus:shadow-[0_0_10px_rgba(255,0,60,0.2)] transition-all font-mono text-sm md:text-base relative z-20"
                                         />
                                     </div>
                                     <div>
@@ -123,7 +123,7 @@ const Contact = () => {
                                             name="subject"
                                             placeholder="Subject"
                                             required
-                                            className="w-full bg-white dark:bg-dark border border-gray-200 dark:border-gray-800 p-4 rounded text-gray-900 dark:text-white focus:outline-none focus:border-cyan focus:shadow-[0_0_10px_rgba(0,243,255,0.2)] transition-all font-mono text-sm md:text-base relative z-20"
+                                            className="w-full bg-white dark:bg-dark border border-gray-200 dark:border-gray-800 p-4 rounded text-gray-900 dark:text-white focus:outline-none focus:border-cyan focus:shadow-[0_0_10px_rgba(255,0,60,0.2)] transition-all font-mono text-sm md:text-base relative z-20"
                                         />
                                     </div>
                                     <div className="flex-1">
@@ -132,7 +132,7 @@ const Contact = () => {
                                             rows="6"
                                             placeholder="Your Message..."
                                             required
-                                            className="w-full h-full min-h-[150px] bg-white dark:bg-dark border border-gray-200 dark:border-gray-800 p-4 rounded text-gray-900 dark:text-white focus:outline-none focus:border-cyan focus:shadow-[0_0_10px_rgba(0,243,255,0.2)] transition-all font-mono text-sm md:text-base resize-none relative z-20"
+                                            className="w-full h-full min-h-[150px] bg-white dark:bg-dark border border-gray-200 dark:border-gray-800 p-4 rounded text-gray-900 dark:text-white focus:outline-none focus:border-cyan focus:shadow-[0_0_10px_rgba(255,0,60,0.2)] transition-all font-mono text-sm md:text-base resize-none relative z-20"
                                         ></textarea>
                                     </div>
 

@@ -4,11 +4,11 @@ import { Database, Code, Server, Wrench, Workflow } from 'lucide-react';
 import MagicBento, { MagicBentoCard } from '../components/MagicBento';
 import PixelCard from '../components/PixelCard';
 
-const SkillCard = ({ title, skills, icon: Icon, delay }) => (
+const SkillCard = ({ title, skills, icon: Icon }) => (
     <div>
         <PixelCard
             variant="blue"
-            className="rounded-xl border border-black hover:border-cyan/50 hover:shadow-[0_0_15px_rgba(0,243,255,0.1)] transition-all duration-300 group w-full h-full"
+            className="rounded-xl border border-black hover:border-cyan/50 hover:shadow-[0_0_15px_rgba(255,0,60,0.1)] transition-all duration-300 group w-full h-full"
         >
             <div className="relative z-10 w-full h-full p-4 md:p-6 flex flex-col">
                 <div className="flex items-center gap-3 mb-4 relative z-10">
@@ -47,11 +47,11 @@ const Skills = () => {
                 </div>
 
                 <MagicBento wrapperClassName="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 w-full max-w-none">
-                    <SkillCard title="Frontend" skills={userData.skills.frontend} icon={Code} delay={0} />
-                    <SkillCard title="Backend" skills={userData.skills.backend} icon={Server} delay={0.2} />
-                    <SkillCard title="Database" skills={userData.skills.database} icon={Database} delay={0.4} />
-                    <SkillCard title="Tools" skills={userData.skills.tools} icon={Wrench} delay={0.6} />
-                    <SkillCard title="Automation" skills={userData.skills.automation} icon={Workflow} delay={0.8} />
+                    <SkillCard title="Frontend" skills={userData.skills.frontend} icon={Code} />
+                    <SkillCard title="Backend" skills={userData.skills.backend} icon={Server} />
+                    <SkillCard title="Database" skills={userData.skills.database} icon={Database} />
+                    <SkillCard title="Tools" skills={userData.skills.tools} icon={Wrench} />
+                    <SkillCard title="Automation" skills={userData.skills.automation} icon={Workflow} />
                 </MagicBento>
             </div>
         </section>

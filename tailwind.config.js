@@ -8,8 +8,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        cyan: '#00f3ff',
-        neon: '#00ff41',
+        cyan: '#ff003c',
+        neon: '#ff003c',
         dark: '#0a0a0a',
         darker: '#050505',
       },
