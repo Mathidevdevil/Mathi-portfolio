@@ -55,10 +55,16 @@ const About = () => {
                                         <Award size={18} className="md:w-5 md:h-5" />
                                         Certification Status
                                     </h3>
-                                    <div className="text-xs md:text-sm font-mono text-gray-900 dark:text-gray-100 space-y-1 relative z-10">
+                                    <div className="text-xs md:text-sm font-mono text-gray-900 dark:text-gray-100 space-y-1 relative z-10 mb-4">
                                         <p className="font-bold">Besant Technologies - Bangalore</p>
                                         <p>Full Stack Java Development</p>
                                         <p>Feb 2025 - July 2025</p>
+                                        <p>Status: <span className="text-cyan dark:text-neon">Completed</span></p>
+                                    </div>
+                                    <div className="text-xs md:text-sm font-mono text-gray-900 dark:text-gray-100 space-y-1 relative z-10">
+                                        <p className="font-bold">Maven Silicon</p>
+                                        <p>VLSI System On Chip Design</p>
+                                        <p>Apr 2026</p>
                                         <p>Status: <span className="text-cyan dark:text-neon">Completed</span></p>
                                     </div>
                                 </div>

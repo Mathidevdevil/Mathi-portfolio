@@ -32,6 +32,12 @@ export const userData = {
                 degree: "Full Stack Java Development",
                 institution: "Besant Technologies - Bangalore",
                 details: "Comprehensive training in Core Java, Spring Boot, React, and Database Management. Status: Completed"
+            },
+            {
+                year: "Apr 2026",
+                degree: "VLSI System On Chip Design",
+                institution: "Maven Silicon",
+                details: "Certificate of Completion"
             }
         ]
     },
@@ -278,6 +284,13 @@ export const userData = {
             date: "June 2024",
             type: "E-Learning",
             link: "https://www.guvi.in/verify-certificate?id=4694i412B271F2pS71"
+        },
+        {
+            title: "VLSI System On Chip Design ",
+            issuer: "Maven Silicon",
+            date: "Apr 2026",
+            type: "E-Learning",
+            link: "#"
         }
     ]
 };
