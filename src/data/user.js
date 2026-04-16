@@ -1,8 +1,8 @@
 export const userData = {
     personal: {
         name: "Mathiyarasu",
-        role: "Software Developer",
-        tagline: "Engineering Robust Solutions | ECE Graduate '25",
+        role: "Software Developer & EDA Enthusiast",
+        tagline: "Building intelligent systems and robust engineering solutions | ECE Graduate '25",
         location: "Anna University, Chennai (GEC Erode)",
         email: ["mathiyarasuarumugamk@gmail.com"],
         github: "https://github.com/Mathidevdevil",
