@@ -37,7 +37,7 @@ const Hero = () => {
                     </span>
                 </h2>
 
-                <p className="text-gray-600 dark:text-gray-500 max-w-2xl mx-auto text-base md:text-lg leading-relaxed px-4">
+                <p className="text-[#00e5ff] max-w-2xl mx-auto text-base md:text-lg leading-relaxed px-4 drop-shadow-[0_0_8px_rgba(0,229,255,0.5)]">
                     {userData.personal.tagline}
                 </p>
 
