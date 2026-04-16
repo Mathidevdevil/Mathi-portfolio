@@ -204,12 +204,12 @@ export const userData = {
                         "Provide real-time status updates and activity logs"
                     ],
                     features: [
-                        "🔐 Remote Lock & Unlock Control",
-                        "📸 Live Camera Monitoring",
-                        "📱 Mobile App Control using Blynk",
-                        "🔔 Instant Notifications for Door Activity",
-                        "📊 Activity Logs for Access Tracking",
-                        "🌐 Wi-Fi Enabled IoT Communication"
+                        " Remote Lock & Unlock Control",
+                        " Live Camera Monitoring",
+                        " Mobile App Control using Blynk",
+                        " Instant Notifications for Door Activity",
+                        " Activity Logs for Access Tracking",
+                        " Wi-Fi Enabled IoT Communication"
                     ],
                     hardware: [
                         "ESP32-CAM Microcontroller",
