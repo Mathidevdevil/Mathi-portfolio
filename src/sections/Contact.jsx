@@ -76,7 +76,7 @@ const Contact = () => {
                                     className="block transition-transform hover:scale-105 hover:translate-x-2"
                                 >
                                     <MagicBentoCard
-                                        className="flex items-center gap-4 text-cyan dark:text-cyan hover:text-white transition-colors p-4 border border-black rounded-lg bg-white/50 dark:bg-white/5 hover:border-cyan/50 shadow-sm hover:shadow-cyan/20 group"
+                                        className="flex items-center gap-4 text-cyan dark:text-cyan hover:text-white transition-colors p-4 border border-gray-300 dark:border-gray-800 rounded-lg bg-white/50 dark:bg-white/5 hover:border-cyan/50 shadow-sm hover:shadow-cyan/20 group"
                                         enableStars={false}
                                         enableTilt={false}
                                         style={{ aspectRatio: 'auto', minHeight: 'auto' }}
@@ -95,7 +95,7 @@ const Contact = () => {
 
                         <PixelCard
                             variant="pink"
-                            className="bg-white/50 dark:bg-white/5 border border-black rounded-xl w-full h-full"
+                            className="bg-white/50 dark:bg-white/5 border border-gray-300 dark:border-gray-800 rounded-xl w-full h-full"
                         >
                             <div className="relative z-10 w-full h-full p-4 md:p-6 flex flex-col">
                                 <form ref={formRef} onSubmit={handleSubmit} className="space-y-3 md:space-y-4 flex-1 flex flex-col relative w-full h-full">

@@ -67,7 +67,7 @@ function App() {
                       key={link.title}
                       href={link.href}
                       onClick={() => setIsMenuOpen(false)}
-                      className="text-lg font-cyber text-gray-800 dark:text-gray-300 hover:text-cyan transition-colors"
+                      className="text-lg font-cyber text-gray-800 dark:text-gray-300 hover:text-neon transition-colors"
                     >
                       {link.title}
                     </a>

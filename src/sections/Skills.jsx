@@ -8,7 +8,7 @@ const SkillCard = ({ title, skills, icon: Icon }) => (
     <div>
         <PixelCard
             variant="blue"
-            className="rounded-xl border border-black hover:border-cyan/50 hover:shadow-[0_0_15px_rgba(255,0,60,0.1)] transition-all duration-300 group w-full h-full"
+            className="rounded-xl border border-gray-300 dark:border-gray-800 hover:border-cyan/50 hover:shadow-[0_0_15px_rgba(255,0,60,0.1)] transition-all duration-300 group w-full h-full"
         >
             <div className="relative z-10 w-full h-full p-4 md:p-6 flex flex-col">
                 <div className="flex items-center gap-3 mb-4 relative z-10">

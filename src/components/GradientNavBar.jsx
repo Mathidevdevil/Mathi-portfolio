@@ -26,8 +26,8 @@ const GradientNavBar = ({ items, isDark, toggleTheme, toggleMenu, isMenuOpen }) 
     return (
         <nav className="relative flex items-center justify-between px-8 py-4 w-full bg-transparent z-50">
             {/* Logo */}
-            <a href="#" className="text-xl font-bold font-cyber text-gray-900 dark:text-white tracking-wider hover:text-cyan transition-colors z-20">
-                Mathi<span className="text-cyan"> DEV </span>
+            <a href="#" className="text-xl font-bold font-cyber text-gray-900 dark:text-white tracking-wider hover:text-neon transition-colors z-20">
+                Mathi<span className="text-neon"> DEV </span>
             </a>
 
             {/* Links - Hidden on Mobile */}
@@ -44,7 +44,7 @@ const GradientNavBar = ({ items, isDark, toggleTheme, toggleMenu, isMenuOpen }) 
                         >
                             <a
                                 href={item.href}
-                                className={`relative z-10 transition-colors duration-300 ${isActive || hoveredIndex === index ? 'text-cyan' : 'text-gray-700 dark:text-gray-300'}`}
+                                className={`relative z-10 transition-colors duration-300 ${isActive || hoveredIndex === index ? 'text-neon' : 'text-gray-700 dark:text-gray-300'}`}
                             >
                                 {item.label}
                             </a>
@@ -52,7 +52,7 @@ const GradientNavBar = ({ items, isDark, toggleTheme, toggleMenu, isMenuOpen }) 
                             {/* Magic Line - Sliding Underline */}
                             {((hoveredIndex === index) || (hoveredIndex === null && isActive)) && (
                                 <div
-                                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-cyan shadow-[0_0_10px_rgba(34,211,238,0.8)]"
+                                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-neon shadow-[0_0_10px_rgba(255,0,60,0.8)]"
                                 />
                             )}
                         </li>
@@ -63,14 +63,14 @@ const GradientNavBar = ({ items, isDark, toggleTheme, toggleMenu, isMenuOpen }) 
             {/* Right Side: Clock, Theme Toggle & Mobile Menu */}
             <div className="flex items-center gap-4 z-20">
                 {/* Clock Display */}
-                <div className="max-md:hidden flex items-center gap-2 text-cyan font-cyber text-sm tracking-widest text-glow">
+                <div className="max-md:hidden flex items-center gap-2 text-neon font-cyber text-sm tracking-widest text-glow">
                     <Clock size={16} />
                     <span suppressHydrationWarning>{formatTime(time)}</span>
                 </div>
 
                 <button
                     onClick={toggleTheme}
-                    className="text-gray-900 dark:text-white hover:text-cyan transition-colors p-2 rounded-full hover:bg-white/10"
+                    className="text-gray-900 dark:text-white hover:text-neon transition-colors p-2 rounded-full hover:bg-white/10"
                 >
                     {isDark ? <Sun size={20} /> : <Moon size={20} />}
                 </button>
@@ -78,7 +78,7 @@ const GradientNavBar = ({ items, isDark, toggleTheme, toggleMenu, isMenuOpen }) 
                 {/* Mobile Menu Toggle */}
                 <button
                     onClick={toggleMenu}
-                    className="md:hidden text-gray-900 dark:text-white hover:text-cyan transition-colors p-2"
+                    className="md:hidden text-gray-900 dark:text-white hover:text-neon transition-colors p-2"
                 >
                     {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>

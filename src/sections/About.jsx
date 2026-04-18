@@ -43,7 +43,7 @@ const About = () => {
 
                             <PixelCard
                                 variant="default"
-                                className="border border-black rounded-lg bg-cyan/5 backdrop-blur-sm relative overflow-hidden w-full h-full"
+                                className="border border-gray-300 dark:border-gray-800 rounded-lg bg-cyan/5 backdrop-blur-sm relative overflow-hidden w-full h-full"
                             >
                                 <div className="relative z-10 w-full h-full p-4 md:p-6 flex flex-col justify-center">
                                     <div className="absolute top-0 left-0 w-2 h-2 bg-cyan z-20" />
@@ -77,7 +77,7 @@ const About = () => {
                                 <PixelCard
                                     key={index}
                                     variant="blue"
-                                    className="group relative border border-black hover:border-cyan dark:hover:border-neon transition-colors duration-300 bg-white dark:bg-darker/50 w-full h-full rounded-xl"
+                                    className="group relative border border-gray-300 dark:border-gray-800 hover:border-cyan dark:hover:border-neon transition-colors duration-300 bg-white dark:bg-darker/50 w-full h-full rounded-xl"
                                 >
                                     <div className="relative z-10 w-full h-full p-4 md:p-6 flex flex-col justify-center">
                                         <div className="absolute -left-[9px] top-6 w-4 h-4 rounded-full bg-gray-50 dark:bg-dark border-2 border-gray-300 dark:border-gray-700 group-hover:border-cyan dark:group-hover:border-neon group-hover:bg-cyan dark:group-hover:bg-neon transition-all z-20" />

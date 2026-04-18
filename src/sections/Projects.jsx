@@ -265,7 +265,7 @@ const CategorySection = ({ category, projects, setSelectedProject }) => {
                     >
                         <PixelCard
                             variant={category.id === 'fullstack' ? 'blue' : category.id === 'ml' ? 'pink' : 'yellow'}
-                            className="border border-black rounded-2xl relative overflow-hidden group shadow-lg hover:shadow-xl dark:shadow-none cursor-pointer transition-all h-full w-full"
+                            className="border border-gray-300 dark:border-gray-800 rounded-2xl relative overflow-hidden group shadow-lg hover:shadow-xl dark:shadow-none cursor-pointer transition-all h-full w-full"
                         >
                             <div
                                 className="relative z-10 w-full h-full p-4 md:p-6 flex flex-col"

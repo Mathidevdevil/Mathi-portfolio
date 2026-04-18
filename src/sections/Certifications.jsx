@@ -24,7 +24,7 @@ const Certifications = () => {
                         >
                             <PixelCard
                                 variant="yellow"
-                                className="bg-white/50 dark:bg-white/5 backdrop-blur-sm border border-black rounded-xl hover:border-cyan/50 hover:shadow-[0_0_15px_rgba(255,0,60,0.1)] transition-all duration-300 group h-full flex flex-col justify-between w-full"
+                                className="bg-white/50 dark:bg-white/5 backdrop-blur-sm border border-gray-300 dark:border-gray-800 rounded-xl hover:border-cyan/50 hover:shadow-[0_0_15px_rgba(255,0,60,0.1)] transition-all duration-300 group h-full flex flex-col justify-between w-full"
                             >
                                 <div className="relative z-10 w-full h-full p-4 md:p-6 flex flex-col justify-between">
                                     <div>

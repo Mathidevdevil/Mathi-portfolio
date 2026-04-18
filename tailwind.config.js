@@ -1,3 +1,5 @@
+import colors from 'tailwindcss/colors';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -8,7 +10,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        cyan: '#ff003c',
+        cyan: {
+          ...colors.cyan,
+          DEFAULT: colors.cyan[500]
+        },
         neon: '#ff003c',
         dark: '#0a0a0a',
         darker: '#050505',
