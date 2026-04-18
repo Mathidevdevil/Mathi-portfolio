@@ -31,7 +31,7 @@ const GradientNavBar = ({ items, isDark, toggleTheme, toggleMenu, isMenuOpen }) 
             </a>
 
             {/* Links - Hidden on Mobile */}
-            <ul className="hidden md:flex items-center gap-2 relative z-20">
+            <ul className="max-md:hidden flex items-center gap-2 relative z-20">
                 {items.map((item, index) => {
                     const isActive = activeIndex === index;
                     return (
@@ -63,7 +63,7 @@ const GradientNavBar = ({ items, isDark, toggleTheme, toggleMenu, isMenuOpen }) 
             {/* Right Side: Clock, Theme Toggle & Mobile Menu */}
             <div className="flex items-center gap-4 z-20">
                 {/* Clock Display */}
-                <div className="hidden md:flex items-center gap-2 text-cyan font-cyber text-sm tracking-widest text-glow">
+                <div className="max-md:hidden flex items-center gap-2 text-cyan font-cyber text-sm tracking-widest text-glow">
                     <Clock size={16} />
                     <span suppressHydrationWarning>{formatTime(time)}</span>
                 </div>
