@@ -9,7 +9,6 @@ const About = lazy(() => import('./sections/About'));
 const Skills = lazy(() => import('./sections/Skills'));
 const Projects = lazy(() => import('./sections/Projects'));
 const Certifications = lazy(() => import('./sections/Certifications'));
-const Freelancing = lazy(() => import('./sections/Freelancing'));
 const Contact = lazy(() => import('./sections/Contact'));
 
 const LoadingSpinner = () => (
@@ -30,7 +29,6 @@ function App() {
     { title: 'ABOUT', href: '#about' },
     { title: 'TECH STACKS', href: '#tech-stacks' },
     { title: 'PROJECTS', href: '#projects' },
-    { title: 'FREELANCING', href: '#freelancing' },
     { title: 'CERTIFICATIONS', href: '#certifications' },
     { title: 'CONTACT', href: '#contact' },
   ];
@@ -85,7 +83,6 @@ function App() {
               <About />
               <Skills />
               <Projects />
-              <Freelancing />
               <Certifications />
               <Contact />
             </Suspense>

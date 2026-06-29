@@ -352,7 +352,7 @@ const Projects = () => {
                 </div>
 
                 {/* All Categories Displayed Vertically */}
-                {categories.map((category, index) => (
+                {categories.map((category) => (
                     <CategorySection
                         key={category.id}
                         category={category}
